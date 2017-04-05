@@ -2,7 +2,7 @@
 
 Please follow the following steps:
 
-* Install Nginx from repository.
+* Install nginx from repository.
 ~~~~
 sudo -s
 nginx=stable # use nginx=development for latest development version
@@ -37,7 +37,7 @@ mkdir -p /var/log/nginx/domains
   openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
   # SSL Certificate self-signed creation:
   openssl genrsa -out www.example.com.key 2048
-  openssl req -new -x509 -key www.example.com.key -out www.example.com.cert -days 3650 -subj /CN=www.example.com 
+  openssl req -new -x509 -key www.example.com.key -out www.example.com.cert -days 3650 -subj /CN=www.example.com
   ~~~~
   * By default, the domain_config is going to redirect all http request to https, and then serve the site using FastCGI in memory cache. For regular Wordpress setup, this won’t need adjustment.
 
