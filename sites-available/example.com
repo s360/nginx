@@ -85,9 +85,11 @@ server {
   resolver_timeout 10s;
   add_header Strict-Transport-Security "max-age=63072000; includeSubdomains; ";
 
-  ssl_dhparam /etc/nginx/ssl/dhparam.pem;
-  ssl_certificate /etc/letsencrypt/live/www.example.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/www.example.com/privkey.pem;
+  ssl_dhparam ssl/dhparam.pem;
+  ssl_certificate ssl/certs/not-available.crt;
+  ssl_certificate_key ssl/certs/not-available.key;
+  # ssl_certificate /etc/letsencrypt/live/www.example.com/fullchain.pem;
+  # ssl_certificate_key /etc/letsencrypt/live/www.example.com/privkey.pem;
   ## End: SSL Config ##
 
   include snippets/paranoid.conf;
