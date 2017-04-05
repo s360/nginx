@@ -1,0 +1,36 @@
+### DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU ARE DOING ###
+### Default Site by default will reject all requests. The SSL certificate for default site 
+### should be a fake one to avoid bot scanning. This is an intended security feature. 
+### This setting requires visitors to use Server Name Indicator Compatible OS/Browser, 
+### list available here: https://en.wikipedia.org/wiki/Server_Name_Indication
+
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  server_name _;
+
+  location / {
+    return 444;
+  }
+
+  ### Handle ELB health check
+  location = /health {
+    access_log off;
+    return 200 'OK';
+    add_header Content-Type text/plain;
+  }
+}
+
+server {
+  listen 443 ssl http2 default_server;
+  listen [::]:443 ssl http2 default_server;
+
+  server_name _;
+  
+  ssl on;
+  ssl_certificate certs/not-available.crt;
+  ssl_certificate_key certs/not-available.key;
+
+  return 444;
+}
