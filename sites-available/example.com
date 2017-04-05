@@ -102,7 +102,7 @@ server {
 
   include snippets/locations-wp.conf;
 
-  include snippets/locations-wellknown.conf;
+  # include snippets/locations-wellknown.conf;
   include snippets/locations.conf;
   include snippets/locations-status.conf;
   # include snippets/webaps.conf;
