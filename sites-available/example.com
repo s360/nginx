@@ -10,7 +10,7 @@ server {
   # index index.php index.html;
   # set $phpsock unix:/run/php/examplecom-active.sock;
 
-  ### Cross Origin Request Support (CORS) AND other client security headers.
+  ### Cross Origin Request Support (CORS).
   ### By default we let the application handle CORS, this can be handled by nginx by
   ### enabling it below.
   # set $cors '';
@@ -19,7 +19,7 @@ server {
   # if ($http_origin ~ '^https?://(localhost|www\.yourdomain\.com|www\.yourotherdomain\.com)') {
   #        set $cors 'true';
   # }
-  include snippets/client_security.conf;
+  include snippets/client-security.conf;
 
   ## Start: Logs ##
   # access_log /var/log/nginx/domains/example.com.log main;
@@ -65,7 +65,7 @@ server {
   # if ($http_origin ~ '^https?://(localhost|www\.yourdomain\.com|www\.yourotherdomain\.com)') {
   #        set $cors 'true';
   # }
-  include snippets/client_security.conf;
+  include snippets/client-security.conf;
 
   ## Start: Logs ##
   access_log /var/log/nginx/domains/example.com.log main;
